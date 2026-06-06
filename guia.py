@@ -28,3 +28,29 @@ def leer_binario():
             print(f"{id_p:<10} {nombre:<20} {precio:<10} {stock:<10}")
     except FileNotFoundError:
         print("El archivo binario no existe aún.")
+def mostrar_productos():
+    try:
+        with open(ARCHIVO_TEXTO, "r") as archivo:
+            print("\n--- LISTA DE PRODUCTOS ---")
+            print(f"{'ID':<10} {'Nombre':<20} {'Precio':<10} {'Stock':<10}")
+            print("-" * 50)
+            for linea in archivo:
+                id_p, nombre, precio, stock = linea.strip().split(",")
+                print(f"{id_p:<10} {nombre:<20} {precio:<10} {stock:<10}")
+    except FileNotFoundError:
+        print("El archivo de inventario no existe aún.")
+
+def buscar_producto():
+    busqueda = input("Ingrese ID o nombre a buscar: ").lower()
+    encontrado = False
+    try:
+        with open(ARCHIVO_TEXTO, "r") as archivo:
+            for linea in archivo:
+                id_p, nombre, precio, stock = linea.strip().split(",")
+                if busqueda == id_p.lower() or busqueda in nombre.lower():
+                    print(f"ID: {id_p}, Nombre: {nombre}, Precio: {precio}, Stock: {stock}")
+                    encontrado = True
+        if not encontrado:
+            print("Producto no encontrado.")
+    except FileNotFoundError:
+        print("Archivo no existe.")
