@@ -1,3 +1,9 @@
+import os
+import pickle
+
+ARCHIVO_TEXTO = "inventario.txt"
+ARCHIVO_BINARIO = "inventario.bin"
+
 def guardar_binario():
     productos = []
     try:
