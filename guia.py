@@ -49,3 +49,13 @@ def calcular_promedio_con_verificacion(a, b):
     except (TypeError, ValueError):
         print("Error: Los parámetros deben ser números")
         return None
+
+# Ejecución del programa
+if __name__ == "__main__":
+    ejecutar_pruebas()
+    
+    # Prueba de la función modificada (paso 6)
+    print("\n--- PRUEBA DE FUNCIÓN MODIFICADA ---")
+    print(f"Promedio con verificación (10, 20): {calcular_promedio_con_verificacion(10, 20)}")
+    print(f"Promedio con verificación ('10', '20'): {calcular_promedio_con_verificacion('10', '20')}")
+    print(f"Promedio con verificación ('texto', 20): {calcular_promedio_con_verificacion('texto', 20)}")
