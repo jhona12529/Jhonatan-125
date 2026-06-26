@@ -1,26 +1,15 @@
-def mostrar_bienvenida():
-    """
-    Función que muestra un mensaje de bienvenida al usuario.
-    
-    Parámetros:
-        Ninguno
-    
-    Retorno:
-        None: Solo imprime un mensaje en consola.
-    """
-    print("\n=== BIENVENIDO AL SISTEMA ===")
-    print("Este programa demuestra el uso de funciones modulares")
-    print("=" * 35)
+def mostrar_estudiantes():
+    """Muestra la lista completa de estudiantes registrados."""
+    print("\n--- LISTA DE ESTUDIANTES ---")
+    if not estudiantes:
+        print("  No hay estudiantes registrados aún.")
+        return
 
-def calcular_promedio(a, b):
-    """
-    Calcula el promedio de dos números.
-    
-    Parámetros:
-        a (int/float): Primer número
-        b (int/float): Segundo número
-    
-    Retorno:
-        float: Promedio de los dos números ingresados
-    """
-    return (a + b) / 2
+    print(f"{'N°':<4} {'Nombre':<20} {'N1':>5} {'N2':>5} {'N3':>5} {'Prom':>7} {'Estado':<12}")
+    print("-" * 60)
+    for i, e in enumerate(estudiantes, 1):
+        n = e["notas"]
+        print(f"{i:<4} {e['nombre']:<20} {n[0]:>5.1f} {n[1]:>5.1f} {n[2]:>5.1f} "
+              f"{e['promedio']:>7.2f} {e['estado']:<12}")
+
+
